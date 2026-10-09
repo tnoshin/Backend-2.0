@@ -17,8 +17,8 @@ app= Flask(__name__)
 csrf= CSRFProtect(app)
 
 CORS(app, resources={
-    r'/chat':{'origins': ['https://brightsmile-dental-demo.onrender.com'], 'supports_credentials':True},
-    r'/history': {'origins': ['https://brightsmile-dental-demo.onrender.com'], 'supports_credentials':True}
+    r'/chat':{'origins': ['https://demo-spa.onrender.com'], 'supports_credentials':True},
+    r'/history': {'origins': ['https://demo-spa.onrender.com'], 'supports_credentials':True}
 })
 
 def get_real_ip():
