@@ -58,6 +58,11 @@ class message(db.Model):
     content = db.Column(db.Text)
     created_at = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
 
+class Slot(db.Model):
+    id= db.Column(db.Integer, primary_key=True)
+    start_time = db.Column(db.Datetime, unique=True, nullable=False)
+    is_booked = db.Column(db.Boolean, default=False)
+
 with app.app_context():
     db.create_all()
     seed_slots(db, Slot)
