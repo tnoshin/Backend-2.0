@@ -112,6 +112,7 @@ def chat():
             model='claude-haiku-5-5',
             max_tokens=500,
             system=system_prompt,
+            thinking={'type': 'disabled'},
             messages=claude_messages
         )
 
