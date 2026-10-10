@@ -115,7 +115,7 @@ def chat():
 
     try:
         response = client.messages.create(
-            model='claude-haiku-4-5-20251001',
+            model='claude-haiku-5-5',
             max_tokens=500,
             system=system_prompt,
             messages=claude_messages
