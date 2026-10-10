@@ -60,7 +60,7 @@ class message(db.Model):
 
 class Slot(db.Model):
     id= db.Column(db.Integer, primary_key=True)
-    start_time = db.Column(db.Datetime, unique=True, nullable=False)
+    start_time = db.Column(db.DateTime, unique=True, nullable=False)
     is_booked = db.Column(db.Boolean, default=False)
 
 with app.app_context():
