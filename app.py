@@ -121,7 +121,7 @@ def chat():
                 reply += b.text
         reply = reply.strip()
 
-        if not response.content or not response.content[0].text:
+        if not reply:
             return jsonify({'error': 'No response generated, please rephrase.'}), 500
 
     except anthropic.APIConnectionError:
