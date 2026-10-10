@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 import anthropic
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime, timezone, timedelta
+from seed import seed_slots
 import secrets
 import os
 import hmac
@@ -58,7 +59,8 @@ class message(db.Model):
     created_at = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
 
 with app.app_context():
-    db.create_all() 
+    db.create_all()
+    seed_slots(db, Slot)
 
 client = anthropic.Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'))
 
