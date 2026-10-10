@@ -114,9 +114,16 @@ def chat():
             system=system_prompt,
             messages=claude_messages
         )
+
+        reply = ''
+        for b in response.content:
+            if b.type == 'text':
+                reply += b.text
+        reply = reply.strip()
+
         if not response.content or not response.content[0].text:
             return jsonify({'error': 'No response generated, please rephrase.'}), 500
-        reply = response.content[0].text
+
     except anthropic.APIConnectionError:
         return jsonify({'error': 'Cannot reach the AI service. Please try again.'}), 503
     except anthropic.RateLimitError:
